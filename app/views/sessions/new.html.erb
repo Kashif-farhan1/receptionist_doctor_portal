@@ -1,0 +1,112 @@
+<!-- app/views/sessions/new.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h2>Login</h2>
+
+  <%= form_with(url: login_path, method: :post) do |form| %>
+    <% if @devise_mapping == :receptionist %>
+      <div class="field">
+        <%= form.label :email %>
+        <%= form.email_field :email, autofocus: true %>
+      </div>
+  
+      <div class="field">
+        <%= form.label :password %>
+        <%= form.password_field :password, autocomplete: "current-password" %>
+      </div>
+  
+      <div class="field">
+        <%= form.check_box :remember_me %>
+        <%= form.label :remember_me, "Remember me" %>
+      </div>
+  
+      <div class="actions">
+        <%= form.submit "Login" %>
+      </div>
+    <% elsif @devise_mapping == :doctor %>
+      <!-- Doctor login fields -->
+      <div class="field">
+        <%= form.label :email %>
+        <%= form.email_field :email, autofocus: true %>
+      </div>
+  
+      <div class="field">
+        <%= form.label :password %>
+        <%= form.password_field :password, autocomplete: "current-password" %>
+      </div>
+  
+      <div class="field">
+        <%= form.check_box :remember_me %>
+        <%= form.label :remember_me, "Remember me" %>
+      </div>
+  
+      <div class="actions">
+        <%= form.submit "Login" %>
+      </div>
+    <% end %>
+    
+    <div class="field">
+        <%= form.label :email %>
+        <%= form.email_field :email, autofocus: true %>
+      </div>
+  
+      <div class="field">
+        <%= form.label :password %>
+        <%= form.password_field :password, autocomplete: "current-password" %>
+      </div>
+  
+      <div class="field">
+        <%= form.check_box :remember_me %>
+        <%= form.label :remember_me, "Remember me" %>
+      </div>
+  
+      <div class="actions">
+        <%= form.submit "Login" %>
+      </div>
+
+  <% end %>
+  
+  </div>
+</body>
+</html>

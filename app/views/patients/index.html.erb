@@ -1,0 +1,32 @@
+<p>welcome</p>
+<h1>Patients#index</h1>
+<p>welcome</p>
+<canvas id="patientsChart" width="400" height="200"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const patientNames = <%= @patients.map { |patient| patient.name }.to_json %>;
+  const patientAges = <%= @patients.map { |patient| patient.age }.to_json %>;
+
+  const ctx = document.getElementById('patientsChart').getContext('2d');
+  const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: patientNames,
+      datasets: [{
+        label: 'Age',
+        data: patientAges,
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>

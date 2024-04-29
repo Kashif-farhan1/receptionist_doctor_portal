@@ -1,0 +1,60 @@
+<!-- app/views/receptionists/dashboard.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Receptionist Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .patient-list {
+      margin-top: 20px;
+    }
+    .patient {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .patient h2 {
+      color: #4CAF50;
+    }
+    .patient p {
+      margin: 5px 0;
+    }
+  </style>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+</head>
+<body>
+  <div class="container">
+    <h1>Receptionist Dashboard</h1>
+    <div class="patient-list">
+      <% @patients.each do |patient| %>
+        <div class="patient">
+          <h2><%= patient.name %></h2>
+          <p><strong>Email:</strong> <%= patient.email %></p>
+          <p><strong>Age:</strong> <%= patient.age %></p>
+          <!-- Add more patient details as needed -->
+        </div>
+      <% end %>
+    </div>
+  </div>
+</body>
+</html>

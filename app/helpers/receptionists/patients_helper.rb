@@ -1,0 +1,2 @@
+module Receptionists::PatientsHelper
+end

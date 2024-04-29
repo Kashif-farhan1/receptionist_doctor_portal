@@ -1,0 +1,31 @@
+<!-- app/views/doctors/patients/index.html.erb -->
+<h1>List of Patients</h1>
+<ul>
+  <% @patients.each do |patient| %>
+    <li><%= patient.name %></li>
+  <% end %>
+</ul>
+
+<h1>Registered Patients</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Created At</th>
+      <th>Updated At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.id %></td>
+        <td><%= patient.name %></td>
+        <td><%= patient.age %></td>
+        <td><%= patient.created_at %></td>
+        <td><%= patient.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

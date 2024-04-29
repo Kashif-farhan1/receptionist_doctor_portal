@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Dashboard</title>
+  <!-- Add any necessary CSS stylesheets or links here -->
+</head>
+<body>
+  <h1>Welcome, Doctor <%= current_user.name %></h1>
+  
+  <!-- Doctor-specific content and functionality -->
+  <div>
+    <!-- Add buttons, links, or other elements for doctor-related actions -->
+    <p>You have <%= @patients_count %> registered patients.</p>
+    <!-- Example: Link to view patient list -->
+    <%= link_to "View Patients", patients_path %>
+    
+    <!-- Example: Graph representing the number of patients registered vs days -->
+    <div id="patients_graph">
+      <!-- Graph content goes here -->
+    </div>
+  </div>
+  
+  <!-- Add any additional doctor-specific content here -->
+</body>
+</html>

@@ -1,0 +1,2 @@
+module Receptionists::DashboardHelper
+end

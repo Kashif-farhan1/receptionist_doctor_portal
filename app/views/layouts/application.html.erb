@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReceptionistDoctorPortal</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <style>
+    nav {
+      background-color: #f4f4f4;
+      padding: 10px;
+      margin-bottom: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    nav ul li a:hover {
+      background-color: #ddd;
+    }
+  </style>
+
+  </head>
+
+  <body>
+    <%= yield %>
+    <nav>
+  <ul>
+    <li><%= link_to "Home", root_path %></li>
+  
+
+    <li><%= link_to "Login", login_path %></li>
+    <li><%= link_to "Receptionist Login", new_receptionists_session_path %></li>
+    <li><%= link_to "Doctor Login", new_doctors_session_path %></li>
+    <li><%= link_to "Register as Receptionist", receptionists_registration_path %></li>
+    <li><%= link_to "Register as Doctor", doctors_registration_path %></li>
+
+
+
+  </ul>
+</nav>
+  </body>
+</html>

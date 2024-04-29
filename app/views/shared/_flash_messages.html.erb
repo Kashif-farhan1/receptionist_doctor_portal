@@ -1,0 +1,27 @@
+flash[notice] ? 'success' : 'error' %>" role="alert">
+        <%= message %>
+      </div>
+    <% end %>
+    ```
+
+7. **Render Flash Messages**: Include the flash messages partial in your layout file to display flash messages.
+
+    ```erb
+    <!-- app/views/layouts/application.html.erb -->
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>My Application</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <body>
+      <%= render 'shared/flash_messages' %>
+      <%= yield %>
+    </body>
+    </html>
+    ```
+
+With these steps, you've implemented patient registration functionality in the receptionist portal. Users can now navigate to `/receptionists/patients/new` to register new patients.

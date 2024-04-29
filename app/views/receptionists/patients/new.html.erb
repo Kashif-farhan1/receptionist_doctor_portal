@@ -1,0 +1,57 @@
+# <!-- app/views/receptionists/patients/new.html.erb -->
+# <h1>Register New Patient</h1>
+
+# <%= form_with(model: @patient, url: receptionists_patients_path, method: :post) do |form| %>
+#   <div>
+#     <%= form.label :name %>
+#     <%= form.text_field :name %>
+#   </div>
+
+#   <div>
+#     <%= form.label :age %>
+#     <%= form.number_field :age %>
+#   </div>
+
+#   <%= form.submit "Register" %>
+# <% end %>
+<!-- app/views/receptionists/patients/new.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Patient Registration</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Logout", logout_path %></li>
+    </ul>
+  </nav>
+
+  <!-- Flash messages display -->
+  <%= render 'shared/flash_messages' %>
+
+  <!-- Main content -->
+  <h1>New Patient Registration</h1>
+  <%= form_with(model: @patient, url: receptionists_patients_path) do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :age %>
+      <%= form.number_field :age %>
+    </div>
+    <div>
+      <%= form.submit "Register" %>
+    </div>
+  <% end %>
+
+</body>
+</html>

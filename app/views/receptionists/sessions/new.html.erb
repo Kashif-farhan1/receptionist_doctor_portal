@@ -1,0 +1,13 @@
+<!-- app/views/receptionists/sessions/new.html.erb -->
+<p>Welcome!!!!</p>
+
+<h1>Login as Receptionist</h1>
+<%= form_with(url: receptionists_sessions_path, method: :post) do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit "Login" %>
+<% end %>

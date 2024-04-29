@@ -1,0 +1,2 @@
+module ReceptionistsRegistrationHelper
+end

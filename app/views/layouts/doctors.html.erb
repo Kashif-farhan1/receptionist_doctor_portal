@@ -1,0 +1,29 @@
+<!-- app/views/layouts/doctors.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Portal</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <header>
+    <!-- Doctor Portal Header Content -->
+  </header>
+
+  <nav>
+    <!-- Doctor Portal Navigation Links -->
+  </nav>
+
+  <main>
+    <!-- Include the Patient Index View -->
+    <%= render 'doctors/patients/index' %>
+  </main>
+
+  <footer>
+    <!-- Doctor Portal Footer Content -->
+  </footer>
+</body>
+</html>

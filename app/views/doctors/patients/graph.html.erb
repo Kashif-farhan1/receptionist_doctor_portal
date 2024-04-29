@@ -1,0 +1,43 @@
+<!-- app/views/doctors/patients/graph.html.erb -->
+
+<%= content_for :head do %>
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<% end %>
+
+<h1>Patients Registration Graph</h1>
+
+<div style="width: 800px; height: 400px;">
+  <canvas id="patientsChart"></canvas>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Get data from Rails controller
+    var dates = <%= raw @dates.to_json %>;
+    var patientCounts = <%= raw @patient_counts.to_json %>;
+
+    // Create Chart.js chart
+    var ctx = document.getElementById('patientsChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: dates,
+        datasets: [{
+          label: 'Number of Patients Registered',
+          data: patientCounts,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  });
+</script>

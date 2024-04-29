@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receptionist Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    form {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+    }
+    input[type="text"],
+    input[type="number"],
+    button {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Receptionist Portal</h1>
+
+  <!-- Form to register a new patient -->
+  <h2>Register New Patient</h2>
+  <form id="registerForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required><br>
+    <button type="submit">Register</button>
+  </form>
+
+  <!-- Table to display existing patients -->
+  <h2>Patients</h2>
+  <table id="patientsTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="patientsList">
+      <!-- Dummy data will be dynamically added here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Dummy patient data (replace with actual data if available)
+    const patients = [
+      { name: "John Doe", age: 30 },
+      { name: "Jane Smith", age: 25 }
+    ];
+
+    // Function to display patients in the table
+    function displayPatients() {
+      const patientsList = document.getElementById("patientsList");
+      patientsList.innerHTML = "";
+      patients.forEach(patient => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${patient.name}</td>
+          <td>${patient.age}</td>
+          <td><button onclick="editPatient('${patient.name}')">Edit</button></td>
+        `;
+        patientsList.appendChild(row);
+      });
+    }
+
+    // Function to register a new patient
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      if (name && age) {
+        patients.push({ name, age });
+        displayPatients();
+        document.getElementById("registerForm").reset();
+      } else {
+        alert("Please enter both name and age.");
+      }
+    });
+
+    // Function to edit a patient (dummy function)
+    function editPatient(name) {
+      alert(`Edit functionality for patient "${name}" will be implemented here.`);
+    }
+
+    // Initial display of patients
+    displayPatients();
+  </script>
+</body>
+</html>
