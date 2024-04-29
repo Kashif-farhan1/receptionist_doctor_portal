@@ -22,4 +22,16 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-# receptionist_doctor_portal
+# receptionist_doctor_portal Requirements
+Ruby version required : ruby 3.0.7p220
+Rails version required: Rails 7.1.3.2
+.rvm required : https://rvm.io/
+PostgreSQl
+---------------------------------------------------------------------------------------------------
+Steps to execute:
+1- Install all requirements
+2- Install all gems
+3- Run "bundle install" in terminal
+4- Run "rails db:migrate"
+5- Run "rails server"
+6- copy "http://127.0.0.1:3000/" paste it on browser
